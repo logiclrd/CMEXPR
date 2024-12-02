@@ -1,0 +1,9 @@
+#!/bin/sh
+
+bison -d parser.y
+
+gcc -c -o parser.tab.o parser.tab.c
+gcc -c -o scanner.o scanner.c
+gcc -c -o main.o main.c
+
+gcc -o expr main.o scanner.o parser.tab.o
